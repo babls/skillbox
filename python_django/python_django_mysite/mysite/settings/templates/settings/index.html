@@ -1,0 +1,25 @@
+{% extends 'settings/base_dark.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <main class="px-3">
+        <h1>Главная страница</h1>
+        {% if tasks %}
+            {% for el in tasks %}
+                <!--<p class="lead"></p>-->
+                <div class="alert alert-warning mt-2">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.task }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет записей!</p>
+        {% endif%}
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
+        </p>
+      </main>
+{% endblock %}

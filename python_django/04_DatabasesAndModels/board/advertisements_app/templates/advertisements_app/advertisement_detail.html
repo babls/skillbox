@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объявление :{{ object.title }}</title>
+</head>
+<body>
+    <h1>Объявление: {{ object.title }}</h1>
+    <p>Цена: {{ object.price }}</p>
+    <p>Описание: {{ object.description }}</p>
+    <p>Рубрика: {{ object.category }}</p>
+    <p>Тип объявления: {{ object.type }}</p>
+    <p>
+        <ul>
+            Контактная информация:
+            <li>
+                ФИО - {{ object.autor.name_autor }}
+            </li>
+            <li>
+                Телефон - {{ object.autor.number_mobile_autor }}
+            </li>
+            <li>
+                email - {{ object.autor.email_autor }}
+            </li>
+        </ul>
+    </p>
+    <p>Количество просмотров: {{ object.views_count }}</p>
+    <a href="http://127.0.0.1:8000/advertisements/">Назад</a>
+</body>
+</html>

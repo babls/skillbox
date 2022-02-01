@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h2>Категории</h2>
+    <select>
+        {%  for categorie in categories%}
+        <option>{{ categorie }}</option>
+        {% endfor %}
+    </select>
+
+    <h3>Регионы</h3>
+    <select>
+        {%  for region in regions%}
+        <option>{{ region }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <br>
+    <br>
+    <h3>Текстовое поле для ввода названия объявления</h3>
+    <p><input maxlength="25" size="40" value="Текстовое поле для ввода названия объявления"></p>
+    <p style="text-align: left"><button>Найти</button>
+</body>
+</html>
