@@ -1,0 +1,14 @@
+{% extends 'app_news/base_dark.html' %}
+
+{% block title %}
+Редактировать новость
+{% endblock %}
+
+{% block content %}
+    <h1>Редактировать новость</h1>
+    <form method="post", action="/{{ news_id }}/edit/">
+        {% csrf_token %}
+        {{ news_form.as_p }}<br>
+        <button type="submit" class="btn btn-success">Редактировать</button>
+    </form>
+{% endblock %}

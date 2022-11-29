@@ -1,0 +1,88 @@
+{% extends 'djcaching/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "History shopping" %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    input {
+        width: 80%;
+    }
+    label {
+        text-align: left;
+    }
+
+    TABLE {
+        width: 600px; /* Ширина таблицы */
+        border-collapse: collapse;  Убираем двойные линии между ячейками */
+        font color="#ffffff";
+   }
+   TD, TH {
+        padding: 3px; /* Поля вокруг содержимого таблицы */
+        border: 1px solid black; /* Параметры рамки */
+   }
+   TH {
+        background: #b0e0e6; /* Цвет фона */
+   }
+
+</style>
+
+
+
+    <main class="px-3 mt-5">
+        <h1>{% trans "History shopping" %}</h1>
+            {% if request.user.is_authenticated %}
+            <div class="alert alert-secondary">
+                <h3>{% trans "Username" %}: {{ request.user.username }}</h3>
+                <table class="px-2 text-dark" border="2" align="center" >
+                    <tbody>
+                        <tr>
+                            <td>{% trans "date of shopping" %}</td>
+                            <td>{% trans "shop" %}</td>
+                            <td>{% trans "product" %}</td>
+                            <td>{% trans "count" %}</td>
+                            <td>{% trans "total" %}</td>
+                        </tr>
+                    {% if history %}
+                        {% for h in history %}
+                        <tr>
+                            <td>{{ h.date_of_shopping }}</td>
+                            <td>{{ h.shop }}</td>
+                            <td>{{ h.product }}</td>
+                            <td>{{ h.count }}</td>
+                            <td>{{ h.total }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td>{% trans "no shopping" %}</td>
+                            <td>{% trans "no shopping" %}</td>
+                            <td>{% trans "no shopping" %}</td>
+                            <td>{% trans "no shopping" %}</td>
+                            <td>{% trans "no shopping" %}</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+                <br>
+                <b>
+                    <p class="p-none">{% trans "Balans" %}: {{ request.user.profile.balance}}</p>
+                </b>
+                    <!--{% if request.user.profile.verification == 'S' %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-dark btn-sm" name="ver_request" value="{{ user.id }}">Запросить верификацию</button>
+                    </form>
+                {% endif %}-->
+            </div>
+            {% else %}
+            <div class="alert alert-secondary" style="cursor:pointer;" onclick="followLink('../../{{ el.id }}/infonews/')">
+                <h3>{% trans "You are not authorized on our site!" %}</h3>
+                <p>{% trans "User is not found :(" %}</p>
+            </div>
+            {% endif %}
+      </main>
+{% endblock %}

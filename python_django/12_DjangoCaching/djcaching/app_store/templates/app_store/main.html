@@ -1,0 +1,39 @@
+{% extends 'djcaching/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Main" %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    input {
+        width: 100%;
+    }
+    .p-none {
+        text-align: left;
+    }
+</style>
+
+
+    <main class="px-3 mt-5">
+        <h1>{% trans "Main" %}</h1>
+        <div class="container w-25 p-3">
+            {% if request.user.is_authenticated %}
+                {% if actions_and_offers %}
+                    {% for aao in actions_and_offers %}
+                        <div class="alert alert-secondary" >
+                            <h3>Магазин: {{ aao.shop }}</h3>
+                            <h2>{{ aao.get_type_display }}</h2>
+                            <b>{{aao.name}}</b>
+                            <p>{{ aao.text_action }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% else %}
+                <p>Нет акций и предложений!</p>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}

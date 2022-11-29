@@ -1,0 +1,104 @@
+{% extends 'djmarketplace/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "History shopping" %}
+{% endblock %}
+
+{% block content %}
+
+<script>
+    function followLink(url) {
+        window.location.href = url;
+    }
+</script>
+
+<style>
+    input {
+        width: 80%;
+    }
+    label {
+        text-align: left;
+    }
+    TABLE {
+        width: 600px; /* Ширина таблицы */
+        border-collapse: collapse;  Убираем двойные линии между ячейками */
+    }
+    TD, TH {
+        padding: 3px; /* Поля вокруг содержимого таблицы */
+        border: 1px solid black; /* Параметры рамки */
+    }
+    TH {
+        background: #b0e0e6; /* Цвет фона */
+    }
+</style>
+
+
+
+    <main class="px-3 mt-5">
+        <h1>{% trans "History shopping" %}</h1>
+            {% if request.user.is_authenticated %}
+            <div class="alert alert-secondary">
+                <h3>{% trans "Username" %}: {{ request.user.username }}</h3>
+                    <table class="px-2 text-dark" border="2" align="center" >
+                        <tbody>
+                            <tr>
+                                <td>{% trans "Дата покупки" %}</td>
+                                <td>{% trans "Товар" %}</td>
+                                <td>{% trans "Количество" %}</td>
+                                <td>{% trans "Магазин" %}</td>
+                                <td>{% trans "Статус покупки" %}</td>
+                                <td colspan="2">{% trans "Действие" %}</td>
+                            </tr>
+                        {% if history_shopping %}
+                            {% for hs in history_shopping %}
+                            <tr>
+                                <td>{{ hs.date_of_shopping }}</td>
+                                <td>{{ hs.product }}</td>
+                                <td>{{ hs.count }}</td>
+                                <td>{{ hs.shop }}</td>
+                                <td>{{ hs.get_status_display }}</td>
+                                {% if hs.get_status_display == 'В корзине'%}
+                                <td>
+                                    <div style="cursor:pointer;" onclick="followLink('../../buyBasket/{{ hs.id }}/')">
+                                        <p>Купить</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="cursor:pointer;" onclick="followLink('../../deleteBasket/{{ hs.id }}/')">
+                                        <p>Отменить</p>
+                                    </div>
+                                </td>
+                                {% elif hs.get_status_display == 'Отмена' %}
+                                <td>
+                                    <p>Отменено</p>
+                                </td>
+                                {% elif hs.get_status_display == 'Оплачено' %}
+                                <td>
+                                    <p>Оплачено</p>
+                                </td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td>{% trans "no history shopping" %}</td>
+                                <td>{% trans "no history shopping" %}</td>
+                                <td>{% trans "no history shopping" %}</td>
+                                <td>{% trans "no history shopping" %}</td>
+                                <td>{% trans "no history shopping" %}</td>
+                                <td>{% trans "no history shopping" %}</td>
+                                <td>{% trans "no history shopping" %}</td>
+                            </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+            </div>
+            {% else %}
+            <div>
+                <h3>{% trans "You are not authorized on our site!" %}</h3>
+                <p>{% trans "User is not found :(" %}</p>
+            </div>
+            {% endif %}
+      </main>
+{% endblock %}

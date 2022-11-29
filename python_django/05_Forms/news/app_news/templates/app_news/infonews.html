@@ -1,0 +1,35 @@
+{% extends 'app_news/base_dark.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <main class="px-3">
+        <h1>{{ news.name }}</h1>
+        {% if news %}
+            <!--<p class="lead"></p>-->
+            <div class="alert alert-secondary">
+                <p>{{ news.text }}</p>
+                <p>{{ news.dataCreate }}</p>
+                <p>{{ news.dateEdit }}</p>
+                {% if comments %}
+                    {% for com in comments %}
+                        <div class="alert alert-dark">
+                            <h4>{{ com.nameUser }}</h4>
+                            <p>{{ com.text }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Нет комментариев :3</p>
+                {% endif%}
+            </div>
+        {% else %}
+            <p>Нет новости</p>
+        {% endif%}
+        <p class="lead">
+          <a href="../../{{ news.id }}/edit/" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Редактировать новость</a>
+          <a href="../../{{ news.id }}/create_comment/" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Добавить комментарий</a>
+        </p>
+      </main>
+{% endblock %}

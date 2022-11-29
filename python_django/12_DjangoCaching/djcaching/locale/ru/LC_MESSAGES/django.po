@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-26 16:34+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\app_store\models.py:7
+msgid "name shop"
+msgstr "название магазина"
+
+#: .\app_store\models.py:13
+msgid "shops"
+msgstr "магазины"
+
+#: .\app_store\models.py:14 .\app_store\models.py:40 .\app_store\models.py:70
+#: .\app_users\templates\app_users\history_shopping.html:44
+msgid "shop"
+msgstr "магазин"
+
+#: .\app_store\models.py:18
+msgid "name product"
+msgstr "название продукта"
+
+#: .\app_store\models.py:19
+msgid "price"
+msgstr "цена"
+
+#: .\app_store\models.py:20
+msgid "category"
+msgstr "категория"
+
+#: .\app_store\models.py:27
+msgid "products"
+msgstr "продукты"
+
+#: .\app_store\models.py:28 .\app_store\models.py:71
+#: .\app_users\templates\app_users\history_shopping.html:45
+msgid "product"
+msgstr "продукт"
+
+#: .\app_store\models.py:37
+msgid "name action"
+msgstr "название акции"
+
+#: .\app_store\models.py:39
+msgid "text"
+msgstr "текст"
+
+#: .\app_store\models.py:46
+msgid "actions and offers"
+msgstr "акции и предложения"
+
+#: .\app_store\models.py:47
+msgid "action and offer"
+msgstr "акция и предложение"
+
+#: .\app_store\models.py:51 .\app_store\models.py:74
+msgid "user"
+msgstr "пользователь"
+
+#: .\app_store\models.py:52
+msgid "balance"
+msgstr "баланс"
+
+#: .\app_store\models.py:53
+msgid "date_of_birth"
+msgstr "дата рождения"
+
+#: .\app_store\models.py:54
+msgid "telephone_number"
+msgstr "телефонный номер"
+
+#: .\app_store\models.py:55
+msgid "city"
+msgstr "город"
+
+#: .\app_store\models.py:56
+msgid "about_myself"
+msgstr "о себе"
+
+#: .\app_store\models.py:64
+msgid "profiles"
+msgstr "профили"
+
+#: .\app_store\models.py:65
+msgid "profile"
+msgstr "профиль"
+
+#: .\app_store\models.py:72
+#: .\app_users\templates\app_users\history_shopping.html:46
+msgid "count"
+msgstr "количество"
+
+#: .\app_store\models.py:73
+#: .\app_users\templates\app_users\history_shopping.html:47
+msgid "total"
+msgstr "сумма"
+
+#: .\app_store\models.py:80 .\app_store\models.py:81
+msgid "history shopping"
+msgstr "история покупок"
+
+#: .\app_store\templates\app_store\main.html:5
+#: .\app_store\templates\app_store\main.html:21
+msgid "Main"
+msgstr "Главная"
+
+#: .\app_users\forms.py:8
+#: .\app_users\templates\app_users\history_shopping.html:39
+#: .\app_users\templates\app_users\profile.html:25
+msgid "Username"
+msgstr "Логин пользователя"
+
+#: .\app_users\forms.py:9
+msgid "Password"
+msgstr "Пароль"
+
+#: .\app_users\templates\app_users\history_shopping.html:5
+#: .\app_users\templates\app_users\history_shopping.html:36
+#: .\app_users\templates\app_users\profile.html:37
+msgid "History shopping"
+msgstr "История покупок"
+
+#: .\app_users\templates\app_users\history_shopping.html:43
+msgid "date of shopping"
+msgstr "дата покупки"
+
+#: .\app_users\templates\app_users\history_shopping.html:61
+#: .\app_users\templates\app_users\history_shopping.html:62
+#: .\app_users\templates\app_users\history_shopping.html:63
+#: .\app_users\templates\app_users\history_shopping.html:64
+#: .\app_users\templates\app_users\history_shopping.html:65
+msgid "no shopping"
+msgstr "Нет покупок"
+
+#: .\app_users\templates\app_users\history_shopping.html:72
+#: .\app_users\templates\app_users\profile.html:35
+msgid "Balans"
+msgstr "Баланс"
+
+#: .\app_users\templates\app_users\history_shopping.html:83
+#: .\app_users\templates\app_users\profile.html:48
+msgid "You are not authorized on our site!"
+msgstr "Вы не авторизованы на нашем сайте!"
+
+#: .\app_users\templates\app_users\history_shopping.html:84
+#: .\app_users\templates\app_users\profile.html:49
+msgid "User is not found :("
+msgstr "Пользователь не найден :("
+
+#: .\app_users\templates\app_users\login.html:5
+#: .\app_users\templates\app_users\login.html:26
+msgid "Login"
+msgstr "Логин"
+
+#: .\app_users\templates\app_users\login.html:21
+msgid "Login page"
+msgstr "Авторизация"
+
+#: .\app_users\templates\app_users\profile.html:5
+#: .\app_users\templates\app_users\profile.html:21
+#: .\djcaching\templates\djcaching\base.html:42
+msgid "Profile"
+msgstr "Профиль"
+
+#: .\app_users\templates\app_users\profile.html:26
+msgid "Surname"
+msgstr "Фамилия"
+
+#: .\app_users\templates\app_users\profile.html:27
+msgid "Name"
+msgstr "Имя"
+
+#: .\app_users\templates\app_users\profile.html:28
+msgid "Email"
+msgstr "Электронная почта"
+
+#: .\app_users\templates\app_users\profile.html:29
+msgid "City"
+msgstr "Город"
+
+#: .\app_users\templates\app_users\profile.html:30
+msgid "Date of Birth"
+msgstr "Дата рождения"
+
+#: .\app_users\templates\app_users\profile.html:31
+msgid "Telephone"
+msgstr "Телефон"
+
+#: .\app_users\templates\app_users\profile.html:32
+msgid "About myself"
+msgstr "О себе"
+
+#: .\djcaching\templates\djcaching\base.html:39
+msgid "Home"
+msgstr "Главная"
+
+#: .\djcaching\templates\djcaching\base.html:46
+msgid "Logout"
+msgstr "Выход"
+
+#: .\djcaching\templates\djcaching\base.html:66
+msgid "Daniil Antonovich"
+msgstr "Даниил Антонович"
+
+#: .\djcaching\templates\djcaching\base.html:81
+msgid "Translate"
+msgstr "Перевести"

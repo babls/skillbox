@@ -1,0 +1,1 @@
+[{"model": "app_house.typehouse", "pk": 1, "fields": {"Name": "Квартира"}}, {"model": "app_house.typehouse", "pk": 2, "fields": {"Name": "Апартаменты"}}]

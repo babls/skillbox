@@ -1,0 +1,40 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+Страница профиля пользователя
+{% endblock %}
+
+{% block content %}
+    <main class="px-3">
+        {% if request.user.is_authenticated %}
+        <div class="alert alert-secondary">
+            <h3>Username: {{ request.user.username }}</h3>
+            <p class="p-none">Фамилия: {{ request.user.first_name }}</p>
+            <p class="p-none">Имя: {{ request.user.last_name }}</p>
+            <p class="p-none">Email: {{ request.user.email }}</p>
+            <p class="p-none">Город: {{ request.user.profile.city }}</p>
+            <p class="p-none">Дата рождения: {{ request.user.profile.date_of_birth }}</p>
+            <p class="p-none">Телефон: {{ request.user.profile.telephone_number }}</p>
+            <p class="p-none">О себе: {{ request.user.profile.about_myself}}</p>
+            <!--{% if request.user.profile.verification == 'S' %}
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-dark btn-sm" name="ver_request" value="{{ user.id }}">Запросить верификацию</button>
+                </form>
+            {% endif %}-->
+            {% if request.user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-dark btn-sm" name="user_id" value="{{ user.id }}">Редактировать</button>
+                </form>
+                <a href="{% url 'list_post' %}" class="btn btn-outline-dark btn-sm mt-1">Список публикаций</a>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="alert alert-secondary" style="cursor:pointer;" onclick="followLink('../../{{ el.id }}/infonews/')">
+            <h3>Вы не авторизованы на нашем сайте!</h3>
+            <p>Пользователь не найден :(</p>
+        </div>
+        {% endif %}
+    </main>
+{% endblock %}

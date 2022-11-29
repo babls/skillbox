@@ -1,0 +1,14 @@
+{% extends 'app_news/base_dark.html' %}
+
+{% block title %}
+Добавить новость
+{% endblock %}
+
+{% block content %}
+    <h1>Добавить новость</h1>
+    <form method="post" action="{% url 'createNews' %}">
+        {% csrf_token %}
+        {{ news_form.as_p }}<br>
+        <button type="submit" class="btn btn-success">Добавить новость</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'app_users/base.html' %}
+
+{% block title %}
+Список всех постов
+{% endblock %}
+
+{% block content %}
+<style>
+    input {
+        width: 80%;
+    }
+    label {
+        text-align: left;
+    }
+
+    TABLE {
+    width: 600px; /* Ширина таблицы */
+    border-collapse: collapse;  Убираем двойные линии между ячейками */
+   }
+   TD, TH {
+    padding: 3px; /* Поля вокруг содержимого таблицы */
+    border: 1px solid black; /* Параметры рамки */
+   }
+   TH {
+    background: #b0e0e6; /* Цвет фона */
+   }
+
+</style>
+    <main class="px-3">
+        <h1>Все посты</h1>
+        <div class="alert alert-secondary ">
+            <table class="px-2" border="2" align="center" >
+                <tbody>
+                <tr>
+                    <td>Название поста</td>
+                    <td>Автор</td>
+                    <td>Флаг активности</td>
+                </tr>
+                {% if post_list %}
+                    {% for post in post_list %}
+                        <tr>
+                            <td>{{ post.name }}</td>
+                            <td>{{ post.author }}</td>
+                            <td>{{ post.activity }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>Нет постов</td>
+                        <td>Нет постов</td>
+                        <td>Нет постов</td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+
+        <form class="mt-2" method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success" type="submit">Загрузить новые посты из csv (массово)</button>
+        </form>
+        </div>
+      </main>
+{% endblock %}

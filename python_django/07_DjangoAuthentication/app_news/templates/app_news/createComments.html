@@ -1,0 +1,14 @@
+{% extends 'app_news/base_dark.html' %}
+
+{% block title %}
+Добавить комментарий
+{% endblock %}
+
+{% block content %}
+    <h1>Добавить комментарий</h1>
+    <form method="post" action="/{{ news_id }}/create_comment/">
+        {% csrf_token %}
+        {{ comments_form.as_p }}<br>
+        <button type="submit" class="btn btn-success">Добавить комментарий</button>
+    </form>
+{% endblock %}

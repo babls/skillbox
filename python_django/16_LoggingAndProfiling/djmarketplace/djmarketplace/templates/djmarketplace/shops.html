@@ -1,0 +1,91 @@
+{% extends 'djmarketplace/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Shops" %}
+{% endblock %}
+
+{% block content %}
+
+<script>
+    function followLink(url) {
+        window.location.href = url;
+    }
+</script>
+
+<style>
+    input {
+        width: 80%;
+    }
+    label {
+        text-align: left;
+    }
+    TABLE {
+        width: 600px; /* Ширина таблицы */
+        border-collapse: collapse;  Убираем двойные линии между ячейками */
+    }
+    TD, TH {
+        padding: 3px; /* Поля вокруг содержимого таблицы */
+        border: 1px solid black; /* Параметры рамки */
+    }
+    TH {
+        background: #b0e0e6; /* Цвет фона */
+    }
+</style>
+
+
+
+    <main class="px-3 mt-5">
+        <h1>{% trans "Shops" %}</h1>
+            {% if request.user.is_authenticated %}
+            <div class="alert alert-secondary">
+                <h3>{% trans "Username" %}: {{ request.user.username }}</h3>
+                    <table class="px-2 text-dark" border="2" align="center" >
+                        <tbody>
+                            <tr>
+                                <td>{% trans "id" %}</td>
+                                <td>{% trans "Товар" %}</td>
+                                <td>{% trans "В наличии в магазинах" %}</td>
+                                <td>{% trans "Количество" %}</td>
+                                <td>{% trans "Добавить в корзину" %}</td>
+                            </tr>
+                        {% if listProducts %}
+                            {% for l in listProducts %}
+                            <tr>
+                                <td>{{ l.id }}</td>
+                                <td>{{ l.product }}</td>
+                                <td>{{ l.shop }}</td>
+                                <td>{{ l.amount }}</td>
+                                {% if l.amount > 0 %}
+                                <td>
+                                    <div style="cursor:pointer;" onclick="followLink('../../addBasket/{{ l.id }}/')">
+                                        <p>Добавить товар</p>
+                                    </div>
+                                </td>
+                                {% else %}
+                                <td>
+                                    <p>Товара нет в наличии</p>
+                                </td>
+                                {% endif%}
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                            </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+            </div>
+            {% else %}
+            <div>
+                <h3>{% trans "You are not authorized on our site!" %}</h3>
+                <p>{% trans "User is not found :(" %}</p>
+            </div>
+            {% endif %}
+      </main>
+{% endblock %}

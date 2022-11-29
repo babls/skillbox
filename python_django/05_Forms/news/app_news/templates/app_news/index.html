@@ -1,0 +1,35 @@
+{% extends 'app_news/base_dark.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+<script>
+    function followLink(url) {
+        window.location.href = url;
+    }
+</script>
+    <main class="px-3">
+        <h1>Главная страница</h1>
+        {% if news %}
+            {% for el in news %}
+                {% if el.activity %}
+                    <!--<p class="lead"></p>-->
+                    <div class="alert alert-secondary" style="cursor:pointer;" onclick="followLink('../../{{ el.id }}/infonews/')">
+                        <h3>{{ el.name }}</h3>
+                        <p>{{ el.text }}</p>
+                        <p>{{ el.dataCreate }}</p>
+                        <p>{{ el.dateEdit }}</p>
+                    </div>
+                {% endif%}
+            {% endfor %}
+        {% else %}
+            <p>Нет новостей!</p>
+        {% endif%}
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
+        </p>
+      </main>
+{% endblock %}

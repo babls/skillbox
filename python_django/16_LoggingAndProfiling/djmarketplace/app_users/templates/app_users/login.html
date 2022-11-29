@@ -1,0 +1,31 @@
+{% extends 'djmarketplace/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Login" %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    input {
+        width: 100%;
+    }
+    label {
+        text-align: left;
+    }
+</style>
+
+
+    <main class="px-3 mt-5">
+        <h1>{% trans "Login page" %}</h1>
+        <div class="container w-25 p-3">
+            <form class="justify-content-center" method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-outline-info m-2 w-75" type="submit">{% trans "Login" %}</button>
+            </form>
+            <a class="btn btn-warning w-75" aria-current="page" href="{% url 'register' %}">{% trans "Registration" %}</a>
+        </div>
+      </main>
+{% endblock %}

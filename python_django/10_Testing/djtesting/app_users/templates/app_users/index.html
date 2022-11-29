@@ -1,0 +1,41 @@
+{% extends 'app_users/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+<script>
+    function followLink(url) {
+        window.location.href = url;
+    }
+</script>
+    <div class="nav-scroller py-1 mb-2 border-bottom">
+        <nav class="nav d-flex justify-content-center">
+            {% for t in tags %}
+                <a class="p-2 link-secondary" href="?tag={{ t.tag }}">{{ t.tag }}</a>
+            {% endfor %}
+        </nav>
+      </div>
+    <main class="px-3">
+        <h1>Главная страница</h1>
+        {% if blog %}
+            {% for b in blog %}
+                <p class="lead"></p>
+                <div class="alert alert-secondary" style="cursor:pointer;" onclick="followLink('../../blog/infopost/{{ b.id }}/')">
+                    <h3>{{ b.name }}</h3>
+                    <p>{{ b.text|truncatechars:10 }}</p>
+                    <!--  Ограницение сделал на 10символов, можно и 100 :)) -->
+                    <!--<p>{{ b.dataCreate }}</p>-->
+                    <p>{{ b.author }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет записей!</p>
+        {% endif%}
+        <!--<p class="lead">
+          <a href="#" class="btn btn-outline-success m-1">Кнопка</a>
+        </p>-->
+      </main>
+{% endblock %}

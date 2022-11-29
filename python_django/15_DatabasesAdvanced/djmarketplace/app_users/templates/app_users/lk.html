@@ -1,0 +1,33 @@
+{% extends 'djmarketplace/base.html' %}
+{% load i18n %}
+{% load cache %} #Кэширование фрагмента шаблона
+
+{% block title %}
+{% trans "Personal Area" %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+</style>
+
+
+
+    <main class="px-3 mt-5">
+        <h1>{% trans "Personal Area" %}</h1>
+            {% if request.user.is_authenticated %}
+                <div class="alert alert-secondary">
+                    <h3>{% trans "Username" %}: {{ request.user.username }}</h3>
+                    <h3>{% trans "Balance" %}: {{ profile.balance }}</h3>
+                    <h3>{% trans "Status" %}: {{ profile.get_status_display }}</h3>
+                    <h3>{% trans "Balance of purchases" %}: {{ profile.balanceShopping }}</h3>
+                    <a class="btn btn-warning w-25" aria-current="page" href="{% url 'money' %}">{% trans "Add money" %}</a>
+                </div>
+                {% else %}
+                <div class="alert alert-secondary" style="cursor:pointer;" onclick="followLink('../../{{ el.id }}/infonews/')">
+                    <h3>{% trans "You are not authorized on our site!" %}</h3>
+                    <p>{% trans "User is not found :(" %}</p>
+                </div>
+            {% endif %}
+      </main>
+{% endblock %}

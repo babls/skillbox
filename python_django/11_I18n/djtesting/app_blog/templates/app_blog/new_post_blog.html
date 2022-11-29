@@ -1,0 +1,27 @@
+{% extends 'app_users/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Add post page" %}
+{% endblock %}
+
+{% block content %}
+<style>
+    input {
+        width: 80%;
+    }
+    label {
+        text-align: left;
+    }
+</style>
+    <main class="px-3">
+        <h1>{% trans "Add post page" %}</h1>
+        <div class="alert alert-secondary">
+        <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success" type="submit">{% trans "Add" %}</button>
+        </form>
+        </div>
+      </main>
+{% endblock %}

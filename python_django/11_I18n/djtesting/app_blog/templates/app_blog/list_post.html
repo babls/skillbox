@@ -1,0 +1,65 @@
+{% extends 'app_users/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "List of all posts" %}
+{% endblock %}
+
+{% block content %}
+<style>
+    input {
+        width: 80%;
+    }
+    label {
+        text-align: left;
+    }
+
+    TABLE {
+    width: 600px; /* Ширина таблицы */
+    border-collapse: collapse;  Убираем двойные линии между ячейками */
+   }
+   TD, TH {
+    padding: 3px; /* Поля вокруг содержимого таблицы */
+    border: 1px solid black; /* Параметры рамки */
+   }
+   TH {
+    background: #b0e0e6; /* Цвет фона */
+   }
+
+</style>
+    <main class="px-3">
+        <h1>{% trans "List of all posts" %}</h1>
+        <div class="alert alert-secondary ">
+            <table class="px-2" border="2" align="center" >
+                <tbody>
+                <tr>
+                    <td>{% trans "Post title" %}</td>
+                    <td>{% trans "Author" %}</td>
+                    <td>{% trans "Activity Flag" %}</td>
+                </tr>
+                {% if post_list %}
+                    {% for post in post_list %}
+                        <tr>
+                            <td>{{ post.name }}</td>
+                            <td>{{ post.author }}</td>
+                            <td>{{ post.activity }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>{% trans "No posts" %}</td>
+                        <td>{% trans "No posts" %}</td>
+                        <td>{% trans "No posts" %}</td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+
+        <form class="mt-2" method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success" type="submit">{% trans "Load new posts from csv (list)" %}</button>
+        </form>
+        </div>
+      </main>
+{% endblock %}

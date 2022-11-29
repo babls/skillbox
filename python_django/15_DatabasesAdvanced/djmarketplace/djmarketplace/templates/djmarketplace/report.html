@@ -1,0 +1,120 @@
+{% extends 'djmarketplace/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Report" %}
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+    input {
+        width: 80%;
+    }
+    label {
+        text-align: left;
+    }
+    TABLE {
+        width: 600px; /* Ширина таблицы */
+        border-collapse: collapse;  Убираем двойные линии между ячейками */
+    }
+    TD, TH {
+        padding: 3px; /* Поля вокруг содержимого таблицы */
+        border: 1px solid black; /* Параметры рамки */
+    }
+    TH {
+        background: #b0e0e6; /* Цвет фона */
+    }
+</style>
+
+
+
+    <main class="px-3 mt-5">
+        <h1>{% trans "Report" %}</h1>
+            {% if request.user.is_authenticated %}
+            <div class="alert alert-secondary">
+                <h3>Отчёт по наиболее продаваемым товарам</h3>
+                    <table class="px-2 text-dark" border="2" align="center" >
+                        <tbody>
+                            <tr>
+                                <td>{% trans "Идентификатор товара" %}</td>
+                                <td>{% trans "Название товара" %}</td>
+                                <td>{% trans "Количество проданных единиц" %}</td>
+                            </tr>
+                        {% if PReport %}
+                            {% for r in PReport %}
+                            <tr>
+                                <td>{{ r.id }}</td>
+                                <td>{{ r.name }}</td>
+                                <td>{{ r.count_buy }}</td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                            </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                <h3>Отчёт по наиболее отменяемым товарам</h3>
+                    <table class="px-2 text-dark" border="2" align="center" >
+                        <tbody>
+                            <tr>
+                                <td>{% trans "Идентификатор товара" %}</td>
+                                <td>{% trans "Название товара" %}</td>
+                                <td>{% trans "Количество проданных единиц" %}</td>
+                            </tr>
+                        {% if СReport %}
+                            {% for cr in СReport %}
+                            <tr>
+                                <td>{{ cr.id }}</td>
+                                <td>{{ cr.name }}</td>
+                                <td>{{ cr.count_buy }}</td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                            </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                <h3>Топ пользователей по покупкам</h3>
+                    <table class="px-2 text-dark" border="2" align="center" >
+                        <tbody>
+                            <tr>
+                                <td>{% trans "Пользователь" %}</td>
+                                <td>{% trans "Баланс покупок" %}</td>
+                                <td>{% trans "Статус пользователя" %}</td>
+                            </tr>
+                        {% if UserReport %}
+                            {% for ur in UserReport %}
+                            <tr>
+                                <td>{{ ur.user }}</td>
+                                <td>{{ ur.balanceShopping }}</td>
+                                <td>{{ ur.get_status_display }}</td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                                <td>{% trans "no products" %}</td>
+                            </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+            </div>
+            {% else %}
+            <div>
+                <h3>{% trans "You are not authorized on our site!" %}</h3>
+                <p>{% trans "User is not found :(" %}</p>
+            </div>
+            {% endif %}
+      </main>
+{% endblock %}

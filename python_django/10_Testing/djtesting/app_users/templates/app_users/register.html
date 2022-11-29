@@ -1,0 +1,26 @@
+{% extends 'app_users/base.html' %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block content %}
+<style>
+    input {
+        width: 100%;
+    }
+    label {
+        text-align: left;
+    }
+</style>
+    <main class="px-3">
+        <h1>Страница регистрации пользователя</h1>
+        <div class="alert alert-secondary">
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success" type="submit">Регистрация</button>
+        </form>
+        </div>
+      </main>
+{% endblock %}

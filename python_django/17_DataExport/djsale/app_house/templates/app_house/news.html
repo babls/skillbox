@@ -1,0 +1,39 @@
+{% extends 'app_house/base.html' %}
+
+{% block title %}
+Список продаваемого жилья
+{% endblock %}
+
+{% block content %}
+
+<script>
+    function followLink(url) {
+        window.location.href = url;
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+        integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+        async></script>
+<h1>Список продаваемого жилья</h1>
+<main class="container py-5 text-center text-black bg-dark">
+    <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 1334px;">
+        {% if listNews %}
+        {% for l in listNews %}
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-body" style="cursor:pointer;" onclick="followLink('../../news/{{ l.id }}/')">
+                    <h5 class="card-title"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">{{l.Name}}</font></font></h5>
+                    <p class="card-text">
+                        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{l.House}}</font></font></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Новостей нет</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

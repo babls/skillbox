@@ -1,0 +1,25 @@
+{% extends 'app_users/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <main class="px-3">
+        <h1>{{ post.name }}</h1>
+        {% if post %}
+            <!--<p class="lead"></p>-->
+            <div class="alert alert-secondary">
+                <p>{{ post.text }}</p>
+                <p>Дата создания записи: {{ post.dataCreate }}</p>
+                <p>Автор: {{ user_post.username }}</p>
+                <p>Дата редактирования записи: {{ post.dateEdit }}</p>
+                {% for f in files %}
+                    {% load static %}<img src="/files/{{ f.file}}">
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Нет постов</p>
+        {% endif %}
+      </main>
+{% endblock %}

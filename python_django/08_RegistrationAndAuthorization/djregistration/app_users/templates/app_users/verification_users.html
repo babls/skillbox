@@ -1,0 +1,44 @@
+{% extends 'app_news/base_dark.html' %}
+
+{% block title %}
+Страница верификации пользователей
+{% endblock %}
+
+{% block content %}
+    <main class="px-3">
+        {% if request.user.is_authenticated %}
+        <h1>Запросы на верификацию</h1>
+            {% if users_ver_list%}
+                <form method="post">
+                    {% csrf_token %}
+                    <ol style="border-bottom: black 1px solid; line-height: 200%; padding-bottom: 10px">
+                    {% for u_user in users_ver_list %}
+                            <div class="alert alert-secondary">
+                                <h3 class="p-none">Username: {{ request.user.username }}</h3>
+                                <p class="p-none">Фамилия: {{ request.user.first_name }}</p>
+                                <p class="p-none">Имя: {{ request.user.last_name }}</p>
+                                <p class="p-none">Email: {{ request.user.email }}</p>
+                                <p class="p-none">Город: {{ request.user.profile.city }}</p>
+                                <p class="p-none">Дата рождения: {{ request.user.profile.date_of_birth }}</p>
+                                <p class="p-none">Телефон: {{ request.user.profile.telephone_number }}</p>
+                                <label class="form-check-label" >Верифицировать</label>
+                                <input class="form-check-input" type="checkbox" name="ver_users" value="{{ u_user.id }}">
+                            </div>
+                    {% endfor %}
+                    <br>
+                    <input class="btn btn-success" type="submit" value="Применить" name="approve_users">
+                    </ol>
+                </form>
+            {% else %}
+            <div class="alert alert-secondary">
+                <h3>Запросов на верификацию нет!</h3>
+            </div>
+            {% endif %}
+        {% else %}
+        <div class="alert alert-secondary" style="cursor:pointer;" onclick="followLink('../../{{ el.id }}/infonews/')">
+            <h3>Вы не авторизованы на нашем сайте!</h3>
+            <p>Пользователь не найден :(</p>
+        </div>
+        {% endif %}
+    </main>
+{% endblock %}

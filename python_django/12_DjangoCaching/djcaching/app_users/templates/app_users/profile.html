@@ -1,0 +1,53 @@
+{% extends 'djcaching/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Profile" %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    input {
+        width: 100%;
+    }
+    .p-none {
+        text-align: left;
+    }
+</style>
+
+
+    <main class="px-3 mt-5">
+        <h1>{% trans "Profile" %}</h1>
+        <div class="container w-25 p-3">
+            {% if request.user.is_authenticated %}
+            <div class="alert alert-secondary">
+                <h3>{% trans "Username" %}: {{ request.user.username }}</h3>
+                <p class="p-none">{% trans "Surname" %}: {{ request.user.first_name }}</p>
+                <p class="p-none">{% trans "Name" %}: {{ request.user.last_name }}</p>
+                <p class="p-none">{% trans "Email" %}: {{ request.user.email }}</p>
+                <p class="p-none">{% trans "City" %}: {{ request.user.profile.city }}</p>
+                <p class="p-none">{% trans "Telephone" %}: {{ request.user.profile.telephone_number }}</p>
+                <p class="p-none">{% trans "About myself" %}: {{ request.user.profile.about_myself}}</p>
+                <br>
+                <b>
+                    <p class="p-none" style="text-align: center;">{% trans "Balans" %}: {{ request.user.profile.balance}}</p>
+                </b>
+                <a href="{% url 'history_shopping' %}" class="btn btn-outline-dark btn-sm mt-1">{% trans "History shopping" %}</a>
+
+                <!--{% if request.user.profile.verification == 'S' %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-dark btn-sm" name="ver_request" value="{{ user.id }}">Запросить верификацию</button>
+                    </form>
+                {% endif %}-->
+            </div>
+            {% else %}
+            <div class="alert alert-secondary" style="cursor:pointer;" onclick="followLink('../../{{ el.id }}/infonews/')">
+                <h3>{% trans "You are not authorized on our site!" %}</h3>
+                <p>{% trans "User is not found :(" %}</p>
+            </div>
+            {% endif %}
+        </div>
+      </main>
+{% endblock %}

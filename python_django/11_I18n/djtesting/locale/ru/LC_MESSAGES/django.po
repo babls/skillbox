@@ -1,0 +1,333 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-12 14:48+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\app_blog\apps.py:8 .\app_blog\models.py:44
+msgid "blog"
+msgstr "блог"
+
+#: .\app_blog\forms.py:9
+msgid "File upload"
+msgstr "Загрузка файла"
+
+#: .\app_blog\forms.py:17
+msgid "Upload a csv file with a list of posts"
+msgstr "Загрузите файл csv со списком постов"
+
+#: .\app_blog\models.py:31 .\app_users\forms.py:13 .\app_users\forms.py:31
+msgid "name"
+msgstr "имя"
+
+#: .\app_blog\models.py:32
+msgid "text"
+msgstr "текст"
+
+#: .\app_blog\models.py:33
+msgid "data create"
+msgstr "дата создания"
+
+#: .\app_blog\models.py:34
+msgid "date edit"
+msgstr "дата редактирования"
+
+#: .\app_blog\models.py:35 .\app_blog\models.py:50
+msgid "activity"
+msgstr "флаг активности"
+
+#: .\app_blog\models.py:36
+msgid "author"
+msgstr "автор"
+
+#: .\app_blog\models.py:43
+msgid "blogs"
+msgstr "блог"
+
+#: .\app_blog\models.py:52
+msgid "The post to which the image is attached"
+msgstr "Пост, к которому прикреплено изображение"
+
+#: .\app_blog\models.py:58
+msgid "files post"
+msgstr "файлы постов"
+
+#: .\app_blog\models.py:59
+msgid "file post"
+msgstr "файлы записи"
+
+#: .\app_blog\templates\app_blog\infopost.html:5
+msgid "Post details"
+msgstr "Подробности поста"
+
+#: .\app_blog\templates\app_blog\infopost.html:15
+msgid "Record creation date:"
+msgstr "Регистрация"
+
+#: .\app_blog\templates\app_blog\infopost.html:16
+msgid "Author:"
+msgstr "Автор:"
+
+#: .\app_blog\templates\app_blog\infopost.html:17
+msgid "Post edit date:"
+msgstr "Дата редактирования поста:"
+
+#: .\app_blog\templates\app_blog\infopost.html:23
+#: .\app_blog\templates\app_blog\list_post.html:50
+#: .\app_blog\templates\app_blog\list_post.html:51
+#: .\app_blog\templates\app_blog\list_post.html:52
+msgid "No posts"
+msgstr "Нет записей"
+
+#: .\app_blog\templates\app_blog\list_post.html:5
+#: .\app_blog\templates\app_blog\list_post.html:31
+msgid "List of all posts"
+msgstr "Список всех постов"
+
+#: .\app_blog\templates\app_blog\list_post.html:36
+msgid "Post title"
+msgstr "Заголовок поста"
+
+#: .\app_blog\templates\app_blog\list_post.html:37
+msgid "Author"
+msgstr "Автор"
+
+#: .\app_blog\templates\app_blog\list_post.html:38
+msgid "Activity Flag"
+msgstr "Флаг активности"
+
+#: .\app_blog\templates\app_blog\list_post.html:61
+msgid "Load new posts from csv (list)"
+msgstr "Загрузить новые сообщения из csv (список)"
+
+#: .\app_blog\templates\app_blog\new_post_blog.html:5
+#: .\app_blog\templates\app_blog\new_post_blog.html:18
+msgid "Add post page"
+msgstr "Страница добавления записи"
+
+#: .\app_blog\templates\app_blog\new_post_blog.html:23
+msgid "Add"
+msgstr "Добавить"
+
+#: .\app_users\apps.py:7
+msgid "users"
+msgstr "пользователи"
+
+#: .\app_users\forms.py:8
+msgid "username"
+msgstr "логин"
+
+#: .\app_users\forms.py:9
+msgid "password"
+msgstr "пароль"
+
+#: .\app_users\forms.py:14 .\app_users\forms.py:32
+msgid "surname"
+msgstr "фамилия"
+
+#: .\app_users\forms.py:15 .\app_users\forms.py:33
+msgid "email"
+msgstr "почта"
+
+#: .\app_users\forms.py:16 .\app_users\forms.py:34
+msgid "sity"
+msgstr "город"
+
+#: .\app_users\forms.py:19
+msgid ""
+"date of birth in the format YYYY-MM-DD (Four-digit year, separator, two-"
+"digit month, separator, two-digit day (example: 2002-02-02))"
+msgstr ""
+"дата рождения в формате ГГГГ-ММ-ДД (четыре цифры года, разделитель, два-"
+"цифровой месяц, разделитель, двузначный день (пример: 2002-02-02))"
+
+#: .\app_users\forms.py:20 .\app_users\forms.py:36
+msgid "telephone number"
+msgstr "телефон"
+
+#: .\app_users\forms.py:21 .\app_users\forms.py:37
+msgid "about myself"
+msgstr "о себе"
+
+#: .\app_users\forms.py:35
+msgid "date of birth"
+msgstr "дата рождения"
+
+#: .\app_users\forms.py:45
+msgid "Enter your email"
+msgstr "Введите адрес электронной почты"
+
+#: .\app_users\models.py:8
+msgid "user"
+msgstr "пользователь"
+
+#: .\app_users\models.py:9
+msgid "city"
+msgstr "город"
+
+#: .\app_users\models.py:10
+msgid "date_of_birth"
+msgstr "Дата рождения"
+
+#: .\app_users\models.py:11
+msgid "telephone_number"
+msgstr "Телефон"
+
+#: .\app_users\models.py:12
+msgid "about_myself"
+msgstr "О себе"
+
+#: .\app_users\models.py:19
+msgid "profiles"
+msgstr "Профили"
+
+#: .\app_users\models.py:20
+msgid "profile"
+msgstr "профиль"
+
+#: .\app_users\templates\app_users\base.html:28
+msgid "Main"
+msgstr "Главная"
+
+#: .\app_users\templates\app_users\base.html:30
+msgid "New post"
+msgstr "Новая запись"
+
+#: .\app_users\templates\app_users\base.html:43
+msgid "Profile"
+msgstr "Профиль"
+
+#: .\app_users\templates\app_users\base.html:44
+msgid "Exit"
+msgstr "Выход"
+
+#: .\app_users\templates\app_users\base.html:47
+#: .\app_users\templates\app_users\login.html:5
+#: .\app_users\templates\app_users\login.html:14
+msgid "Login"
+msgstr "Войти"
+
+#: .\app_users\templates\app_users\base.html:48
+msgid "Register"
+msgstr "Регистрация"
+
+#: .\app_users\templates\app_users\base.html:59
+msgid "Daniil Antonovich"
+msgstr "Даниил Антонович"
+
+#: .\app_users\templates\app_users\edit_profile.html:5
+#: .\app_users\templates\app_users\edit_profile.html:18
+msgid "Edit profile"
+msgstr "Профиль"
+
+#: .\app_users\templates\app_users\edit_profile.html:23
+msgid "Save"
+msgstr "Сохранить"
+
+#: .\app_users\templates\app_users\index.html:5
+#: .\app_users\templates\app_users\index.html:23
+msgid "Main page"
+msgstr "Главная"
+
+#: .\app_users\templates\app_users\index.html:36
+msgid "No records!"
+msgstr "Нет записей!"
+
+#: .\app_users\templates\app_users\login.html:10
+msgid "Login page"
+msgstr "Войти"
+
+#: .\app_users\templates\app_users\profile.html:5
+msgid "User profile page"
+msgstr "Страница профиля пользователя"
+
+#: .\app_users\templates\app_users\profile.html:13
+msgid "Surname"
+msgstr "фамилия"
+
+#: .\app_users\templates\app_users\profile.html:14
+msgid "Name"
+msgstr "Имя"
+
+#: .\app_users\templates\app_users\profile.html:15
+msgid "Email"
+msgstr "почта"
+
+#: .\app_users\templates\app_users\profile.html:16
+msgid "City"
+msgstr "Город"
+
+#: .\app_users\templates\app_users\profile.html:17
+msgid "Date of Birth"
+msgstr "дата рождения"
+
+#: .\app_users\templates\app_users\profile.html:18
+msgid "Telephone"
+msgstr "телефон"
+
+#: .\app_users\templates\app_users\profile.html:19
+msgid "About myself"
+msgstr "О себе"
+
+#: .\app_users\templates\app_users\profile.html:29
+msgid "Edit"
+msgstr "Редактировать"
+
+#: .\app_users\templates\app_users\profile.html:31
+msgid "List of publications"
+msgstr "Список публикаций"
+
+#: .\app_users\templates\app_users\profile.html:36
+msgid "You are not authorized on our site!"
+msgstr "Вы не авторизованы на нашем сайте!"
+
+#: .\app_users\templates\app_users\profile.html:37
+msgid "User is not found :("
+msgstr "Пользователь не найден :("
+
+#: .\app_users\templates\app_users\register.html:5
+#: .\app_users\templates\app_users\register.html:18
+msgid "User registration page"
+msgstr "Страница регистрации пользователей"
+
+#: .\app_users\templates\app_users\register.html:23
+msgid "Registration"
+msgstr "Регистрация"
+
+#: .\app_users\templates\app_users\restore_password.html:5
+#: .\app_users\templates\app_users\restore_password.html:10
+msgid "Account recovery"
+msgstr "Восстановление аккаунта"
+
+#: .\app_users\templates\app_users\restore_password.html:14
+msgid ""
+"Enter your email, you will receive an email with instructions to restore "
+"your account"
+msgstr ""
+"Введите свой адрес электронной почты, вы получите электронное письмо с "
+"инструкциями по восстановлению вашей учетной записи"
+
+#: .\app_users\templates\app_users\restore_password.html:15
+msgid "Restore password"
+msgstr "Восстановить пароль"
+
+#, fuzzy
+#~| msgid "Login"
+#~ msgid "login"
+#~ msgstr "Войти"

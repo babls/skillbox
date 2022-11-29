@@ -1,0 +1,41 @@
+{% extends 'app_users/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "User profile page" %}
+{% endblock %}
+
+{% block content %}
+    <main class="px-3">
+        {% if request.user.is_authenticated %}
+        <div class="alert alert-secondary">
+            <h3>Username: {{ request.user.username }}</h3>
+            <p class="p-none">{% trans "Surname" %}: {{ request.user.first_name }}</p>
+            <p class="p-none">{% trans "Name" %}: {{ request.user.last_name }}</p>
+            <p class="p-none">{% trans "Email" %}: {{ request.user.email }}</p>
+            <p class="p-none">{% trans "City" %}: {{ request.user.profile.city }}</p>
+            <p class="p-none">{% trans "Date of Birth" %}: {{ request.user.profile.date_of_birth }}</p>
+            <p class="p-none">{% trans "Telephone" %}: {{ request.user.profile.telephone_number }}</p>
+            <p class="p-none">{% trans "About myself" %}: {{ request.user.profile.about_myself}}</p>
+            <!--{% if request.user.profile.verification == 'S' %}
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-dark btn-sm" name="ver_request" value="{{ user.id }}">Запросить верификацию</button>
+                </form>
+            {% endif %}-->
+            {% if request.user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-dark btn-sm" name="user_id" value="{{ user.id }}">{% trans "Edit" %}</button>
+                </form>
+                <a href="{% url 'list_post' %}" class="btn btn-outline-dark btn-sm mt-1">{% trans "List of publications" %}</a>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="alert alert-secondary" style="cursor:pointer;" onclick="followLink('../../{{ el.id }}/infonews/')">
+            <h3>{% trans "You are not authorized on our site!" %}</h3>
+            <p>{% trans "User is not found :(" %}</p>
+        </div>
+        {% endif %}
+    </main>
+{% endblock %}

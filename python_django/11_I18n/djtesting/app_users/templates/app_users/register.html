@@ -1,0 +1,27 @@
+{% extends 'app_users/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "User registration page" %}
+{% endblock %}
+
+{% block content %}
+<style>
+    input {
+        width: 100%;
+    }
+    label {
+        text-align: left;
+    }
+</style>
+    <main class="px-3">
+        <h1>{% trans "User registration page" %}</h1>
+        <div class="alert alert-secondary">
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success" type="submit">{% trans "Registration" %}</button>
+        </form>
+        </div>
+      </main>
+{% endblock %}
